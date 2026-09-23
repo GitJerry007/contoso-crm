@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f7fa;
+  --foreground: #17212b;
+
+  /* Contoso.com brand tokens - navy / orange (spójne z panelem-makietą i logo) */
+  --accent: #1f4f7d;
+  --accent-strong: #0a2c4d;
+  --accent-soft: #e3eaf1;
+  --accent-2: #e86008;
+  --accent-2-soft: #fce4d2;
+
+  --surface: #ffffff;
+  --border: #dbe3ea;
+  --text-muted: #5b6b7a;
+
+  --ok: #2e7d32;
+  --warn: #b45309;
+  --danger: #c0392b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-accent-2-soft: var(--accent-2-soft);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text-muted: var(--text-muted);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f1720;
+    --foreground: #e7edf3;
+    --accent: #6fa2d6;
+    --accent-strong: #a3c5eb;
+    --accent-soft: #182a3e;
+    --accent-2: #f2924d;
+    --accent-2-soft: #3a2412;
+    --surface: #16212c;
+    --border: #26333f;
+    --text-muted: #93a3b1;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
