@@ -22,7 +22,7 @@ export function StatCard({
       : "text-foreground";
 
   return (
-    <div className="rounded-xl border border-border bg-surface p-4">
+    <div className="rounded-xl border border-border bg-surface p-4 shadow-sm">
       <p className="text-xs text-text-muted">{label}</p>
       <p className={`mt-1 text-2xl font-semibold ${toneClass}`}>{value}</p>
     </div>
@@ -31,7 +31,7 @@ export function StatCard({
 
 export function Placeholder({ title, hint }: { title: string; hint?: string }) {
   return (
-    <div className="rounded-xl border border-dashed border-border bg-surface p-6">
+    <div className="rounded-xl border border-dashed border-border bg-surface p-6 shadow-sm">
       <p className="text-sm font-medium text-foreground">{title}</p>
       <p className="mt-1 text-xs text-text-muted">
         {hint ??

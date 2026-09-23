@@ -2,6 +2,9 @@
 
 :root {
   --background: #f4f7fa;
+  /* Drugi punkt gradientu tla (patrz "body" nizej) - lekko chlodniejszy
+     odcien, zeby tlo mialo delikatna glebie zamiast plaskiego koloru. */
+  --background-2: #dfe9f3;
   --foreground: #17212b;
 
   /* Contoso.com brand tokens - navy / orange (spójne z panelem-makietą i logo) */
@@ -12,16 +15,21 @@
   --accent-2-soft: #fce4d2;
 
   --surface: #ffffff;
+  /* Tlo pól formularzy (input/select) - celowo osobny token od --surface,
+     zeby w trybie ciemnym pole nie "znikalo" na tle karty (patrz nizej). */
+  --input-bg: #f7f9fb;
   --border: #dbe3ea;
   --text-muted: #5b6b7a;
 
   --ok: #2e7d32;
   --warn: #b45309;
   --danger: #c0392b;
+  --danger-soft: #fdecea;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-2: var(--background-2);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
@@ -29,28 +37,48 @@
   --color-accent-2: var(--accent-2);
   --color-accent-2-soft: var(--accent-2-soft);
   --color-surface: var(--surface);
+  --color-input-bg: var(--input-bg);
   --color-border: var(--border);
   --color-text-muted: var(--text-muted);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0f1720;
+    /* Troszke jasniejsze niz poprzednio (bylo #0f1720) - calkiem czarne
+       tlo topilo w sobie logo i granice kart. */
+    --background: #101c28;
+    /* Drugi, wyrazniej jasniejszy punkt gradientu - to on daje "glebie"
+       i sprawia, ze logo/naglowek wyraznie sie odcinaja. */
+    --background-2: #24405a;
     --foreground: #e7edf3;
     --accent: #6fa2d6;
     --accent-strong: #a3c5eb;
     --accent-soft: #182a3e;
     --accent-2: #f2924d;
     --accent-2-soft: #3a2412;
-    --surface: #16212c;
-    --border: #26333f;
-    --text-muted: #93a3b1;
+    /* Karty troche jasniejsze niz wczesniej, zeby wyraznie odcinaly sie
+       od nowego (jasniejszego) tla, a nie z nim zlewaly. */
+    --surface: #1b2836;
+    /* Jasniejsze od --surface, zeby pole tekstowe bylo wyraznie widoczne
+       na ciemnej karcie, a nie "wtapialo sie" w tlo. */
+    --input-bg: #243447;
+    --border: #3d5169;
+    --text-muted: #9fb0bf;
+    --danger: #f28b82;
+    --danger-soft: #3a1e1c;
   }
 }
 
 body {
-  background: var(--background);
+  /* Delikatny, skosny gradient zamiast plaskiego koloru - dzieki temu
+     tlo ma glebie, a logo i naglowek czytaja sie wyrazniej niz na
+     jednolitej, bardzo ciemnej plaszczyznie. */
+  background: linear-gradient(150deg, var(--background) 0%, var(--background-2) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
   color: var(--foreground);
   font-family: var(--font-sans);
 }

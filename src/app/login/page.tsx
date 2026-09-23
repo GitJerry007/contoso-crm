@@ -43,7 +43,9 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background px-4">
+    // Uwaga: celowo BEZ bg-background - tlo (gradient) ustawione jest raz,
+    // globalnie, na <body> w globals.css.    
+    <main className="flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-sm rounded-2xl border border-border bg-surface p-8 shadow-sm">
         <div className="mb-6 flex flex-col items-center gap-3 text-center">
           <Image src="/logo.png" alt="Contoso.com" width={160} height={80} priority />
@@ -60,7 +62,7 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="rounded-lg border border-border bg-background px-3 py-2 outline-none focus:border-accent"
+              className="rounded-lg border border-border bg-input-bg px-3 py-2 text-foreground outline-none focus:border-accent"
               placeholder="imie.nazwisko@contoso.com"
             />
           </label>
@@ -72,13 +74,13 @@ export default function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="rounded-lg border border-border bg-background px-3 py-2 outline-none focus:border-accent"
+              className="rounded-lg border border-border bg-input-bg px-3 py-2 text-foreground outline-none focus:border-accent"
               placeholder="••••••••"
             />
           </label>
 
           {error && (
-            <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>
+            <p className="rounded-lg bg-danger-soft px-3 py-2 text-sm text-danger">{error}</p>
           )}
 
           <button

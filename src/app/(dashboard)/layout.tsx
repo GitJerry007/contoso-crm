@@ -23,8 +23,11 @@ export default async function DashboardLayout({
   const { profile } = await requireUser();
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-surface px-6 py-3">
+    // Uwaga: celowo BEZ bg-background tutaj - tlo (gradient) ustawione
+    // jest raz, globalnie, na <body> w globals.css. Gdyby ten div mial
+    // wlasne plaskie tlo, zakrywalby ten gradient.
+    <div className="min-h-screen">
+      <header className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-surface/95 px-6 py-3 backdrop-blur supports-[backdrop-filter]:bg-surface/80">
         <div className="flex items-center gap-3">
           <Image src="/logo.png" alt="Contoso.com" width={120} height={60} priority />
           <span className="hidden text-sm text-text-muted sm:inline">
